@@ -1,0 +1,6 @@
+COMMIT_MSG_FILE=$1
+COMMIT_MESSAGE=`cat $COMMIT_MSG_FILE`
+COMMIT_SOURCE=$2
+SHA1=$3
+INIT_MESSAGE_LINE_FIRST="# Please enter the commit message for your changes."
+exec < /dev/tty && ([ "$COMMIT_SOURCE" = "" ] || [[ "$COMMIT_MESSAGE" =~ "${INIT_MESSAGE_LINE_FIRST}".* ]]) && node_modules/.bin/cz --hook || true

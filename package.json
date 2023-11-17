@@ -1,0 +1,42 @@
+{
+  "name": "cyberpack",
+  "main": "./lib/index.js",
+  "bin": "./lib/index.js",
+  "scripts": {
+    "test": "node lib/index.js",
+    "prepare": "[ ! -n \"$CI\" ] && husky install",
+    "commit": "cz"
+  },
+  "files": [
+    "lib"
+  ],
+  "devDependencies": {
+    "@antfu/eslint-config": "^1.1.4",
+    "@commitlint/cli": "^18.4.2",
+    "@commitlint/config-conventional": "^18.4.2",
+    "@commitlint/cz-commitlint": "^18.4.2",
+    "commitizen": "^4.3.0",
+    "eslint": "^8.53.0",
+    "husky": "^8.0.3",
+    "inquirer": "^8.2.6",
+    "lint-staged": "^15.1.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "dependencies": {
+    "ora": "^7.0.1"
+  }
+}
