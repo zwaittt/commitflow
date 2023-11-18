@@ -1,8 +1,29 @@
 {
-  "name": "cyberpack",
+  "name": "@urzx/commitflow",
+  "version": "0.0.1",
   "main": "./lib/index.js",
   "bin": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zwaittt/commitflow.git"
+  },
+  "author": {
+    "name": "zwaittt",
+    "email": "l20122005@live.com"
+  },
+  "keywords": [
+    "husky",
+    "commitlint",
+    "commitizen",
+    "conventional-changelog",
+    "lint-staged"
+  ],
+  "packageManager": "pnpm@8.6.12",
+  "engines": {
+    "node": ">=14"
+  },
   "scripts": {
+    "pretest": "pnpm prune ---prod --config.ignore-scripts=true",
     "test": "node lib/index.js",
     "prepare": "[ ! -n \"$CI\" ] && husky install",
     "commit": "cz"
@@ -36,7 +57,7 @@
       "@commitlint/config-conventional"
     ]
   },
-  "dependencies": {
-    "ora": "^7.0.1"
+  "publishConfig": {
+    "access": "public"
   }
 }

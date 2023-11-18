@@ -3,5 +3,13 @@
   "eslint.experimental.useFlatConfig": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
-  }
+  },
+  "json.schemas": [
+    {
+      "url": "https://json.schemastore.org/package.json",
+      "fileMatch": [
+        "package.json"
+      ]
+    }
+  ]
 }
