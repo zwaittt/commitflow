@@ -1,15 +1,14 @@
 {
   "name": "@urzx/commitflow",
   "version": "0.0.1",
-  "main": "./lib/index.js",
-  "bin": "./lib/index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zwaittt/commitflow.git"
-  },
+  "packageManager": "pnpm@8.6.12",
   "author": {
     "name": "zwaittt",
     "email": "l20122005@live.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zwaittt/commitflow.git"
   },
   "keywords": [
     "husky",
@@ -18,7 +17,11 @@
     "conventional-changelog",
     "lint-staged"
   ],
-  "packageManager": "pnpm@8.6.12",
+  "main": "./lib/index.js",
+  "bin": "./lib/index.js",
+  "files": [
+    "lib"
+  ],
   "engines": {
     "node": ">=14"
   },
@@ -28,9 +31,6 @@
     "prepare": "[ ! -n \"$CI\" ] && husky install",
     "commit": "cz"
   },
-  "files": [
-    "lib"
-  ],
   "devDependencies": {
     "@antfu/eslint-config": "^1.1.4",
     "@commitlint/cli": "^18.4.2",
@@ -43,7 +43,7 @@
     "lint-staged": "^15.1.0"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
+    "*.{js,jsx,ts,tsx,md,json}": [
       "eslint --fix"
     ]
   },
