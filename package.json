@@ -28,8 +28,8 @@
   "scripts": {
     "pretest": "pnpm prune ---prod --config.ignore-scripts=true",
     "test": "node lib/index.js",
-    "prepare": "[ ! -n \"$CI\" ] && husky install",
-    "commit": "cz"
+    "commit": "cz",
+    "prepare": "sh -c '[ ! -n \"$CI\" ] && husky install'"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^1.1.4",
