@@ -3,11 +3,15 @@ name: auto-release
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 on:
-  push:
-    branches: [ "release" ]
+  pull_request_target:
+    types:
+      - closed
+    branches:
+      - main
 
 jobs:
   release:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     permissions:
       contents: write # to be able to publish a GitHub release
@@ -28,8 +32,11 @@ jobs:
         run: pnpm i --frozen-lockfile
       # - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
       #   run: pnpm audit signatures
+      - name: Set publishing config
+        run: pnpm config set '//registry.npmjs.org/:_authToken' "${NPM_AUTH_TOKEN}"
+        env:
+          NPM_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
+        run: pnpm dlx changelogen@latest --release --publish --push
