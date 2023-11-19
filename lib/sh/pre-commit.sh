@@ -1,1 +1,1 @@
-node_modules/.bin/commitlint
+node_modules/.bin/lint-staged
