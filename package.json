@@ -1,6 +1,6 @@
 {
   "name": "@urzx/commitflow",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "packageManager": "pnpm@8.6.12",
   "author": {
     "name": "zwaittt",
