@@ -1,0 +1,27 @@
+name: ci-test
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+on:
+  push:
+    branches:
+      - release-test
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      - name: Corepack enable
+        run: corepack enable
+      - name: Tests
+        run: |
+          pnpm test
+      # - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
+      #   run: pnpm audit signatures
