@@ -1,11 +1,14 @@
-const antfu = require('@antfu/eslint-config').default
+const urzx = require('@urzx/eslint-config').default
 
 module.exports = [
-  ...antfu(),
+  ...urzx({
+    node: true,
+  }),
   {
     rules: {
       'no-console': 'off',
-      'node/prefer-global/process': 'off',
+      'n/prefer-global/process': 'off',
+      'n/no-sync': 'off',
     },
   },
 ]

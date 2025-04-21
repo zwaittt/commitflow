@@ -1,7 +1,7 @@
 {
   "name": "@urzx/commitflow",
-  "version": "0.0.3",
-  "packageManager": "pnpm@8.6.12",
+  "version": "0.0.4",
+  "packageManager": "pnpm@9.12.3",
   "author": {
     "name": "zwaittt",
     "email": "l20122005@live.com"
@@ -23,27 +23,28 @@
     "lib"
   ],
   "engines": {
-    "node": ">=14"
+    "node": ">=18"
   },
   "scripts": {
-    "pretest": "pnpm prune ---prod --config.ignore-scripts=true",
+    "pretest": "pnpm prune --prod --silent --config.ignore-scripts=true",
     "test": "node lib/index.js",
-    "commit": "cz",
-    "prepare": "[ ! -n \"$CI\" ] && husky install || exit 0"
+    "prepare": "[ ! -n \"$CI\" ] && husky install || exit 0",
+    "commit": "cz"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^1.1.4",
-    "@commitlint/cli": "^18.4.2",
-    "@commitlint/config-conventional": "^18.4.2",
-    "@commitlint/cz-commitlint": "^18.4.2",
-    "commitizen": "^4.3.0",
-    "eslint": "^8.53.0",
+    "@commitlint/cli": "^18.6.1",
+    "@commitlint/config-conventional": "^18.6.3",
+    "@commitlint/cz-commitlint": "^18.6.1",
+    "@jest/globals": "^29.7.0",
+    "@urzx/eslint-config": "^0.0.1",
+    "commitizen": "^4.3.1",
+    "eslint": "^9.25.0",
     "husky": "^8.0.3",
     "inquirer": "^8.2.6",
-    "lint-staged": "^15.1.0"
+    "lint-staged": "^15.5.1"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,md,json}": [
+    "*.{js,jsx,ts,tsx}": [
       "eslint --fix"
     ]
   },
@@ -59,5 +60,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "prompts": "^2.4.2"
   }
 }
