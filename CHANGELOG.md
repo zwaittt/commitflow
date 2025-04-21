@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.0.5
+
+[compare changes](https://github.com/zwaittt/commitflow/compare/v0.0.3...v0.0.5)
+
+### 💅 Refactors
+
+- Add prompts to interact on command ([7f56503](https://github.com/zwaittt/commitflow/commit/7f56503))
+
+### ❤️ Contributors
+
+- Zwaittt ([@zwaittt](https://github.com/zwaittt))
+
 ## v0.0.3
 
 [compare changes](https://github.com/zwaittt/commitflow/compare/v0.0.2...v0.0.3)
